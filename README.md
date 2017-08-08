@@ -1,6 +1,5 @@
 # ArcusTangens
 
-### Short description
 This is my solution to the task **ArcusTangens** of class **software developement 1.** 
 
 ### Requirements
