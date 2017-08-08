@@ -1,7 +1,8 @@
 # ArcusTangens
 
 ### Short description
-This is the solution to the task **ArcusTangens** of my class **software developement 1.** 
+This is my solution to the task **ArcusTangens** of class **software developement 1.** 
+
 
 
 ### What to do
