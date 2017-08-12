@@ -10,10 +10,8 @@ public class ArcusTangens {
 
     /**
      * Constant value EPSILON which stores the accuracy with which the arctangent is computed.
-     * Constant value THREE is just a workaround to not use a "magic number" in the formula to compute the series.
      */
     private static final double EPSILON = 1E-16;
-    private static final double THREE = 3.0;
 
     /**
      * Main method to compute the arctangent.
@@ -27,26 +25,24 @@ public class ArcusTangens {
         double an;										    // variable to store the computed operand an
         double anPlusOne = x;								// variable to store the operand an+1 (recursive with an as the beginning)
         int n = 1;									        // counter used in the while loop
-        int twoN;									        // variable to store the value of the operation 2*n used in the formula
 
 
         // While loop to compute the arctangent of x with an accuracy of EPSILON.
         while (Math.abs(anPlusOne) > EPSILON) {
 
-            twoN = 2 * n;
-            an = Math.pow(-1, n) * ((Math.pow(x, twoN + 1) / (twoN + 1)));
-            anPlusOne = (-((twoN + 1.0) / (twoN + THREE)) * x * x) * an;
+            an = Math.pow(-1, n) * ((Math.pow(x, 2 * n + 1) / (2 * n + 1)));
             sn += an;
+            anPlusOne = (-((2 * n + 1.0) / (2 * (n + 1) + 1)) * x * x) * an;
             n++;
 
         }
 
 
         // Output of the arctangent of x computed with my algorithm.
-        System.out.println(sn);
+        System.out.printf("Arctangent of %.1f computed with my algorithm:  %.16f\n", x, sn);
 
         // Output of the arctangent of x computed with the java MATH library function Math.atan(x).
-        System.out.println(Math.atan(x));
+        System.out.printf("Arctangent of %.1f computed with Math function: %.16f", x, Math.atan(x));
 
     }
 }
